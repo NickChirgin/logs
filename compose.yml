@@ -1,0 +1,28 @@
+version: '1.0'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+  redis:
+    image: bitnami/redis:7.0
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-db:/val/lib/redis/data
+  clickhouse:
+    image: bitnami/clickhouse:latest
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - clickhouse-db:/val/lib/clickhouse/data
+  kafka:
+    image: 'bitnami/kafka:latest'
+    environment:
+      - ALLOW_PLAINTEXT_LISTENER=yes
+volumes:
+  redis-db:
+  clickhouse-db:
