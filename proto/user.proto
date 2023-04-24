@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package userpb;
+option go_package = "/userpb";
+
+message AddUserRequest {}
+message AddUserResponse {}
+message DeleteUserRequest {}
+message DeleteUserResponse {}
+message AllUsersRequest {}
+message AllUsersResponse {}
+
+
+
+
+service UserService {
+  rpc AddUser(AddUserRequest) returns (AddUserResponse);
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+  rpc AllUsers(AllUsersRequest) returns (AllUsersResponse);
+}
