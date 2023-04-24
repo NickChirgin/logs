@@ -10,8 +10,6 @@ COPY . .
 
 RUN go mod tidy
 
-RUN mkdir proto-gen 
-
 RUN protoc --go_out=proto-gen proto/user.proto --go-grpc_out=proto-gen proto/user.proto
 
 CMD go run cmd/main.go
