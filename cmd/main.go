@@ -1,7 +1,12 @@
 package main
 
-import "time"
+import (
+	"fmt"
+
+	"github.com/nickchirgin/logs/internal/storage"
+)
+
 
 func main() {
-	time.Sleep(100 * time.Second)	
+	fmt.Println(storage.Clickhouse, storage.Postgre)
 }

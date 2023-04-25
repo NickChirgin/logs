@@ -2,6 +2,8 @@ version: '1.0'
 services:
   web:
     build: .
+    env_file:
+      - .env
     volumes:
       - .:/app
   redis:
@@ -19,6 +21,17 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - clickhouse-db:/val/lib/clickhouse/data
+  postgre:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_HOST=${DB_HOST}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgre-db:/val/lib/postgresql/data1
   kafka:
     image: 'bitnami/kafka:latest'
     environment:
@@ -26,3 +39,4 @@ services:
 volumes:
   redis-db:
   clickhouse-db:
+  postgre-db:
