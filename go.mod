@@ -13,6 +13,7 @@ require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/go-faster/city v1.0.1 // indirect
 	github.com/go-faster/errors v0.6.1 // indirect
+	github.com/go-redis/redis v6.15.9+incompatible // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/jackc/pgx v3.6.2+incompatible // indirect
